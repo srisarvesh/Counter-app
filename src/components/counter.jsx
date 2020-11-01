@@ -5,12 +5,16 @@ export default class Counter extends Component {
         count:1,
         imageurl:'https://i.imgur.com/gf9qMMK.png'
     }
+    styles={
+     fontSize:30,
+     fontWeight:20
+    }
     render() {
         return (
             <div>
-               <img src={this.state.imageurl} alt='' />
-               <span>{this.formatcount()}</span>
-               <button>Increment</button>
+               
+               <span className="badge badge-primary m-2" style={this.styles}>{this.formatcount()}</span>
+               <button className="btn btn-secomdary btn-sm" style={{fontSize:20 }}>Increment</button>
             </div>
             );
     }
