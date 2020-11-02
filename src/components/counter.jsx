@@ -9,7 +9,8 @@ export default class Counter extends Component {
     styles={
         fontSize:20
     }
-    rendertags(){
+    rendertags()
+    {
         if(this.state.tags.length===0){
             return <p>There are no tags</p>;
         }
@@ -22,14 +23,21 @@ export default class Counter extends Component {
     </ul>
     );
     
-}
+    }
+    
+    handleIncrement=()=>
+    {
+    
+       this.setState({count:this.state.count+1});
+    }
     
     render() {
         return (
             <div>
                <span style={this.styles} className={this.g()}>{this.formatcount()}</span>
-               <button className="btn btn-secondary btn-sm" style={{fontSize:20 }}>Increment</button>
-               {this.rendertags()};
+               <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm" style={{fontSize:20 }}>Increment</button>
+               {this.state.tags.length===0 &&  "please make tags"}
+               {this.rendertags()}
             </div>
             );
     }
